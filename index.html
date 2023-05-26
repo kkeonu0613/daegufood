@@ -1165,7 +1165,8 @@
             </table>
         </details>
     </div>
-    <div class="container__random active">       
+      <div class="container__random">
+        <!-- 랜덤 컨테이너 내용 -->
         <head>
             <title>식당 추천 프로그램</title>
             <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4qgqe032co"></script>
@@ -1179,35 +1180,38 @@
                     height: 100vh;
                 }
 
-                #map {
-                    width: 1000px;
-                    height: 800px;
+                .container__random.active #map-container {
+                    display: block;
                 }
 
-                #title {
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
+                #map {
+                    width: 800px;
+                    height: 600px;
+                    margin: 0 auto; /* 가운데 정렬 추가 */
+                    margin-top: 20px;
+                }
+
+                #map-container .map-title {
                     font-size: 20px;
                     font-weight: bold;
                     margin-top: 10px;
+                    text-align: center;
                 }
 
                 #button-container {
                     margin-top: 20px;
+                    text-align: center;
                 }
             </style>
         </head>
         <body>
             <div id="map-container">
-                <h1 id="title">대구대 주변 식당 추천</h1>
+                <h1 class="map-title">대구대 주변 식당 추천</h1>
                 <div id="map"></div>
                 <div id="button-container">
                     <button onclick="randomRestaurant()">추천받기</button>
                 </div>
             </div>
-
             <script>
                 var map;
                 var marker;
@@ -1221,57 +1225,57 @@
 
                 function randomRestaurant() {
                     var restaurants = [
-                            { name: "라쿤푸마라탕", lat: 35.896575, lng: 128.851577 },
-                            { name: "청춘을 파는 상회", lat: 35.896584, lng: 128.850747 },
-                            { name: "청춘라면", lat: 35.896757, lng: 128.850319 },
-                            { name: "미즈 컨테이너", lat: 35.901705, lng: 128.848843 },
-                            { name: "스텔라", lat: 35.897294, lng: 128.849436 },
-                            { name: "스타벅스", lat: 35.897225, lng: 128.849174 },
-                            { name: "후아닝", lat: 35.896692, lng: 128.84966 },
-                            { name: "한솥 도시락", lat: 35.896742, lng: 128.849168 },
-                            { name: "이삭 토스트", lat: 35.89666, lng: 128.850028 },
-                            { name: "메가MGC커피", lat: 35.896757, lng: 128.849435 },
-                            { name: "라팡 순쌀빵 베이커리 카페", lat: 35.896823, lng: 128.850226 },
-                            { name: "맘스터치", lat: 35.896604, lng: 128.850548 },
-                            { name: "미담 쭈꾸미", lat: 35.896852, lng: 128.850939 },
-                            { name: "오위", lat: 35.896556, lng: 128.85121 },
-                            { name: "도화", lat: 35.896614, lng: 128.851516 },
-                            { name: "홍대꿀갈비", lat: 35.896558, lng: 128.85139 },
-                            { name: "쪼닭 쪼림닭", lat: 35.896849, lng: 128.851102 },
-                            { name: "숯불 바베큐 치킨 백록담", lat: 35.89688, lng: 128.850754 },
-                            { name: "고래성", lat: 35.896651, lng: 128.849867 },
-                            { name: "이백장 돈가스", lat: 35.896651, lng: 128.849867 },
-                            { name: "카츠데이", lat: 35.896705, lng: 128.849371 },
-                            { name: "일미닭갈비", lat: 35.896847, lng: 128.848992 },
-                            { name: "스마일 마라탕", lat: 35.896744, lng: 128.849596 },
-                            { name: "종이밥", lat: 35.89687, lng: 128.850291 },
-                            { name: "우당탕 반점", lat: 35.896874, lng: 128.85075 },
-                            { name: "환도네", lat: 35.895176, lng: 128.852337 },
-                            { name: "막구어", lat: 35.895635, lng: 128.851914 },
-                            { name: "빨강창꼬", lat: 35.894748, lng: 128.852289 },
-                            { name: "평사튀김 떡볶이", lat: 35.894712, lng: 128.852287 },
-                            { name: "디나폴리 카페", lat: 35.894467, lng: 128.851961 },
-                            { name: "똥꼬집 식당", lat: 35.894187, lng: 128.851908 },
-                            { name: "김안에밥", lat: 35.89423, lng: 128.852273 },
-                            { name: "왕이모네", lat: 35.893037, lng: 128.853329 },
-                            { name: "고인돌 식당", lat: 35.892438, lng: 128.853786 },
-                            { name: "쩐닭", lat: 35.892438, lng: 128.853786 },
-                            { name: "무한폭식", lat: 35.892657, lng: 128.853874 },
-                            { name: "Hyuk Don", lat: 35.892832, lng: 128.853888 },
-                            { name: "선셋 키친", lat: 35.89422, lng: 128.852784 },
-                            { name: "치킨플러스", lat: 35.897077, lng: 128.846478 },
-                            { name: "빨봉 분식", lat: 35.897128, lng: 128.846349 },
-                            { name: "나잇앤데이", lat: 35.896952, lng: 128.846086 },
-                            { name: "마사커피", lat: 35.899683, lng: 128.843689 },
-                            { name: "또바기집밥", lat: 35.904679, lng: 128.841674 },
-                            { name: "후생관", lat: 35.903997, lng: 128.845067 },
-                            { name: "웅지관", lat: 35.901956, lng: 128.848878 },
-                            { name: "웅지관 한식뷔페", lat: 35.901956, lng: 128.848878 },
-                            { name: "버거킹", lat: 35.899403, lng: 128.85283 },
-                            { name: "복지관", lat: 35.89939, lng: 128.852552 },
-                            { name: "Grazie", lat: 35.89939, lng: 128.852552 },
-                            { name: "써브웨이", lat: 35.899766, lng: 128.848664 },
-                            { name: "파리바게트", lat: 35.899758, lng: 128.848593 },
+                        { name: "라쿤푸마라탕", lat: 35.896575, lng: 128.851577 },
+                        { name: "청춘을 파는 상회", lat: 35.896584, lng: 128.850747 },
+                        { name: "청춘라면", lat: 35.896757, lng: 128.850319 },
+                        { name: "미즈 컨테이너", lat: 35.901705, lng: 128.848843 },
+                        { name: "스텔라", lat: 35.897294, lng: 128.849436 },
+                        { name: "스타벅스", lat: 35.897225, lng: 128.849174 },
+                        { name: "후아닝", lat: 35.896692, lng: 128.84966 },
+                        { name: "한솥 도시락", lat: 35.896742, lng: 128.849168 },
+                        { name: "이삭 토스트", lat: 35.89666, lng: 128.850028 },
+                        { name: "메가MGC커피", lat: 35.896757, lng: 128.849435 },
+                        { name: "라팡 순쌀빵 베이커리 카페", lat: 35.896823, lng: 128.850226 },
+                        { name: "맘스터치", lat: 35.896604, lng: 128.850548 },
+                        { name: "미담 쭈꾸미", lat: 35.896852, lng: 128.850939 },
+                        { name: "오위", lat: 35.896556, lng: 128.85121 },
+                        { name: "도화", lat: 35.896614, lng: 128.851516 },
+                        { name: "홍대꿀갈비", lat: 35.896558, lng: 128.85139 },
+                        { name: "쪼닭 쪼림닭", lat: 35.896849, lng: 128.851102 },
+                        { name: "숯불 바베큐 치킨 백록담", lat: 35.89688, lng: 128.850754 },
+                        { name: "고래성", lat: 35.896651, lng: 128.849867 },
+                        { name: "이백장 돈가스", lat: 35.896651, lng: 128.849867 },
+                        { name: "카츠데이", lat: 35.896705, lng: 128.849371 },
+                        { name: "일미닭갈비", lat: 35.896847, lng: 128.848992 },
+                        { name: "스마일 마라탕", lat: 35.896744, lng: 128.849596 },
+                        { name: "종이밥", lat: 35.89687, lng: 128.850291 },
+                        { name: "우당탕 반점", lat: 35.896874, lng: 128.85075 },
+                        { name: "환도네", lat: 35.895176, lng: 128.852337 },
+                        { name: "막구어", lat: 35.895635, lng: 128.851914 },
+                        { name: "빨강창꼬", lat: 35.894748, lng: 128.852289 },
+                        { name: "평사튀김 떡볶이", lat: 35.894712, lng: 128.852287 },
+                        { name: "디나폴리 카페", lat: 35.894467, lng: 128.851961 },
+                        { name: "똥꼬집 식당", lat: 35.894187, lng: 128.851908 },
+                        { name: "김안에밥", lat: 35.89423, lng: 128.852273 },
+                        { name: "왕이모네", lat: 35.893037, lng: 128.853329 },
+                        { name: "고인돌 식당", lat: 35.892438, lng: 128.853786 },
+                        { name: "쩐닭", lat: 35.892438, lng: 128.853786 },
+                        { name: "무한폭식", lat: 35.892657, lng: 128.853874 },
+                        { name: "Hyuk Don", lat: 35.892832, lng: 128.853888 },
+                        { name: "선셋 키친", lat: 35.89422, lng: 128.852784 },
+                        { name: "치킨플러스", lat: 35.897077, lng: 128.846478 },
+                        { name: "빨봉 분식", lat: 35.897128, lng: 128.846349 },
+                        { name: "나잇앤데이", lat: 35.896952, lng: 128.846086 },
+                        { name: "마사커피", lat: 35.899683, lng: 128.843689 },
+                        { name: "또바기집밥", lat: 35.904679, lng: 128.841674 },
+                        { name: "후생관", lat: 35.903997, lng: 128.845067 },
+                        { name: "웅지관", lat: 35.901313, lng: 128.846949 },
+                        { name: "웅지관 한식뷔페", lat: 35.901313, lng: 128.846949 },
+                        { name: "버거킹", lat: 35.899403, lng: 128.85283 },
+                        { name: "복지관", lat: 35.89939, lng: 128.852552 },
+                        { name: "Grazie", lat: 35.89939, lng: 128.852552 },
+                        { name: "써브웨이", lat: 35.899766, lng: 128.848664 },
+                        { name: "파리바게트", lat: 35.899758, lng: 128.848593 },
                         // 여기에 식당 정보를 추가해주세요.
                     ];
 
@@ -1288,14 +1292,12 @@
                     });
 
                     map.setCenter(marker.getPosition());
-
                     alert("추천된 식당: " + restaurant.name);
                 }
 
                 naver.maps.onJSContentLoaded = initMap;
             </script>
         </body>
-    </div>   
+    </div>
 </body>
-
 </html>
