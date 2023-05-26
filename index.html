@@ -1529,61 +1529,89 @@
             </table>
         </details>
     </div>
-    <div class="container__random active">
-        <table class="dataframe">
-            <thead>
-                <title>식당 추천 프로그램</title>
-                <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4qgqe032co"></script>
-                <style>
-                    #map {
-                        width: 500px;
-                        height: 400px;
-                        text-align: center; 
-                    }
-                </style>
-                <tbody>
-                    <h1>대구대 주변 식당 추천</h1>
-                    <div id="map"></div>
+    <div class="container__random active">       
+        <head>
+            <title>식당 추천 프로그램</title>
+            <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4qgqe032co"></script>
+            <style>
+                #map-container {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+
+                #map {
+                    width: 1000px;
+                    height: 800px;
+                }
+
+                #title {
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-top: 10px;
+                }
+
+                #button-container {
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="map-container">
+                <h1 id="title">대구대 주변 식당 추천</h1>
+                <div id="map"></div>
+                <div id="button-container">
                     <button onclick="randomRestaurant()">추천받기</button>
+                </div>
+            </div>
 
-                    <script>
-                        var map;
+            <script>
+                var map;
+                var marker;
 
-                        function initMap() {
-                            map = new naver.maps.Map('map', {
-                                center: new naver.maps.LatLng(35.902093, 128.849081), // 대구대 좌표
-                                zoom: 15
-                            });
-                        }
+                function initMap() {
+                    map = new naver.maps.Map('map', {
+                        center: new naver.maps.LatLng(35.902093, 128.849081),
+                        zoom: 15
+                    });
+                }
 
-                        function randomRestaurant() {
-                            var restaurants = [
-                                { name: "라쿤푸마라탕", lat: 35.896575, lng: 128.851577 },
-                                { name: "청춘상회", lat: 35.896584, lng: 128.850747 },
-                                { name: "청춘라면", lat: 35.896757, lng: 128.850319 },
-                                // 여기에 식당 정보를 추가해주세요.
-                            ];
+                function randomRestaurant() {
+                    var restaurants = [
+                        { name: "라쿤푸마라탕", lat: 35.896575, lng: 128.851577 },
+                        { name: "청춘상회", lat: 35.896584, lng: 128.850747 },
+                        { name: "청춘라면", lat: 35.896757, lng: 128.850319 },
+                        // 여기에 식당 정보를 추가해주세요.
+                    ];
 
-                            var randomIndex = Math.floor(Math.random() * restaurants.length);
-                            var restaurant = restaurants[randomIndex];
+                    if (marker) {
+                        marker.setMap(null);
+                    }
 
-                            var marker = new naver.maps.Marker({
-                                position: new naver.maps.LatLng(restaurant.lat, restaurant.lng),
-                                map: map
-                            });
+                    var randomIndex = Math.floor(Math.random() * restaurants.length);
+                    var restaurant = restaurants[randomIndex];
 
-                            map.setCenter(marker.getPosition());
+                    marker = new naver.maps.Marker({
+                        position: new naver.maps.LatLng(restaurant.lat, restaurant.lng),
+                        map: map
+                    });
 
-                            alert("추천된 식당: " + restaurant.name);
-                        }
+                    map.setCenter(marker.getPosition());
 
-                        naver.maps.onJSContentLoaded = initMap;
-                    </script>
-                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=vjFAsmCvzKrOhJv75gmClaS1DKLcyJoIoEULcDmC&callback=initMap"></script>
-                </tbody>
-            </thead>
+                    alert("추천된 식당: " + restaurant.name);
+                }
 
-
+                naver.maps.onJSContentLoaded = initMap;
+            </script>
+        </body>
+    </div>   
 </body>
 
 </html>
