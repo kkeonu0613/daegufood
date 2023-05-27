@@ -22,7 +22,7 @@
             <li id="price">가격순</li>
             <li id="menu">메뉴순</li>
             <li id="place">장소순</li>
-            <li id="random">!랜덤!</li>
+            <li id="random">식당추천</li>
         </ul>
 
         <ul class="navbar__icons">
@@ -1165,11 +1165,12 @@
             </table>
         </details>
     </div>
-      <div class="container__random">
-        <!-- 랜덤 컨테이너 내용 -->
+    <div class="container__random">
+
         <head>
             <title>식당 추천 프로그램</title>
-            <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4qgqe032co"></script>
+            <script type="text/javascript"
+                src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=4qgqe032co"></script>
             <style>
                 #map-container {
                     position: relative;
@@ -1187,12 +1188,13 @@
                 #map {
                     width: 800px;
                     height: 600px;
-                    margin: 0 auto; /* 가운데 정렬 추가 */
+                    margin: 0 auto;
+                    /* 가운데 정렬 추가 */
                     margin-top: 20px;
                 }
 
                 #map-container .map-title {
-                    font-size: 20px;
+                    font-size: 35px;
                     font-weight: bold;
                     margin-top: 10px;
                     text-align: center;
@@ -1202,14 +1204,22 @@
                     margin-top: 20px;
                     text-align: center;
                 }
+
+                #output {
+                    font-size: 35px;
+                    /* 원하는 폰트 크기로 수정하세요 */
+                }
             </style>
         </head>
+
         <body>
+
             <div id="map-container">
                 <h1 class="map-title">대구대 주변 식당 추천</h1>
                 <div id="map"></div>
                 <div id="button-container">
                     <button onclick="randomRestaurant()">추천받기</button>
+                    <p id="output"></p> <!-- 식당 이름을 표시할 <p> 태그 -->
                 </div>
             </div>
             <script>
@@ -1276,7 +1286,7 @@
                         { name: "Grazie", lat: 35.89939, lng: 128.852552 },
                         { name: "써브웨이", lat: 35.899766, lng: 128.848664 },
                         { name: "파리바게트", lat: 35.899758, lng: 128.848593 },
-                        // 여기에 식당 정보를 추가해주세요.
+                        // 식당 정보를 추가해주세요.
                     ];
 
                     if (marker) {
@@ -1292,12 +1302,13 @@
                     });
 
                     map.setCenter(marker.getPosition());
-                    alert("추천된 식당: " + restaurant.name);
+                    var outputElement = document.getElementById("output");
+                    outputElement.textContent = "추천된 식당: " + restaurant.name;
                 }
 
                 naver.maps.onJSContentLoaded = initMap;
             </script>
-        </body>
     </div>
 </body>
+
 </html>
