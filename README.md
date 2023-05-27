@@ -4,7 +4,7 @@
   - 이 프로그램은 주변 식당 중 한 곳을 랜덤하게 추천하여 지도에 표시해주는 웹 애플리케이션입니다.
   - [DU Food 영상](https://github.com/tula3and/rainbow-meal/blob/main/data/Demo%20Video.mp4)
     - 영상은 다운로드해야 볼 수 있습니다.
-    - 
+     
 - GitHub 오픈소스 활용 프로젝트
   - 팀 구성원 : 
     - 팀장 : [김건우](https://github.com/tula3and),
