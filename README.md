@@ -2,19 +2,19 @@
 
 - 대구대 근처 식당 메뉴 추천 웹앱 `DU Food`
   - 이 프로그램은 주변 식당 중 한 곳을 랜덤하게 추천하여 지도에 표시해주는 웹 애플리케이션입니다.
-  - [DU Food 영상](https://github.com/tula3and/rainbow-meal/blob/main/data/Demo%20Video.mp4)
+  - [DU Food 영상]()
     - 영상은 다운로드해야 볼 수 있습니다.
      
 - GitHub 오픈소스 활용 프로젝트
   - 팀 구성원 : 
-    - 팀장 : [김건우](https://github.com/tula3and),
-    - 팀원 : [곽보석](https://github.com/seung365), [김성현](https://github.com/seung365)
+    - 팀장 : [김건우](https://github.com/kkeonu0613),
+    - 팀원 : [곽보석](https://github.com/jewelry1104), [김성현](https://github.com/seonghyeon1022)
 
 - Sources
   - Icons: [Font Awesome](https://fontawesome.com/)
   - Header font: Jua from [Google Fonts](https://fonts.google.com/)
-  - Open Sources : rainbow-meal (https://github.com/tula3and/rainbow-meal.git)
-  - Open Api : Naver map api (https://console.ncloud.com/naver-service/application)
+  - Open Sources : rainbow-Meal (https://github.com/tula3and/rainbow-meal.git)
+  - Open Api : Naver map api (https://www.ncloud.com/product/applicationService/maps)
   
 ## 사용 방법
 
@@ -40,7 +40,7 @@
 
 - HTML, CSS, JavaScript
 - Naver map api
-- rainbow-meal (https://github.com/tula3and/rainbow-meal.git)
+- Rainbow-Meal (https://github.com/tula3and/rainbow-meal.git)
 
 ## 프로젝트 구조
 
