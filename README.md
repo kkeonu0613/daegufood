@@ -53,3 +53,8 @@
 
 1. 해당 저장소를 클론합니다.
 2. `index.html` 파일을 웹 브라우저에서 실행합니다.
+
+## 라이선스
+
+이 프로젝트는 [네이버 Map API](https://www.ncloud.com/product/applicationService/maps)를 활용하여 개발되었습니다. 
+네이버 Map API의 사용은 네이버의 이용약관과 API 이용약관에 따라 규제됩니다. API의 사용에 대한 자세한 내용은 네이버의 공식 문서를 참조하시기 바랍니다.
