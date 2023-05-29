@@ -47,7 +47,6 @@
 - `index.html`: 메인 HTML 파일
 - `style.css`: CSS 스타일 파일
 - `main.js`: JavaScript 코드 파일
-- `map.js`: 지도 관련 JavaScript 코드 파일
 
 ## 프로젝트 설정 및 실행 방법
 
