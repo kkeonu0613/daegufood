@@ -2,7 +2,7 @@
 
 - 대구대 근처 식당 메뉴 추천 웹앱 `DU Food`
   - 이 프로그램은 주변 식당 중 한 곳을 랜덤하게 추천하여 지도에 표시해주는 웹 애플리케이션입니다.
-  - [DU Food 영상](DU Food 시연 영상.mp4)
+  - [DU Food 시연 영상](https://github.com/kkeonu0613/daegufood/blob/main/DU Food 시연 영상.mp4)
     - 영상은 다운로드해야 볼 수 있습니다.
      
 - GitHub 오픈소스 활용 프로젝트
